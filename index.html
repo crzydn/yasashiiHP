@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>やさしいHPプラン — 訪問看護・介護向け格安ワンページ制作</title>
   <meta name="description" content="全国対応・格安ワンページ制作 + AI指導プラン。訪問看護・訪問介護・就労支援に特化したLP。無料相談・スマホ対応。">
   <meta name="robots" content="index,follow">
@@ -37,23 +37,21 @@
       font-family:'Noto Sans JP','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
     }
 
+    html {font-size:16px;}
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;background:linear-gradient(180deg,#fbfcfd,#f7fbff);color:#12202b;line-height:1.65}
+    body{margin:0;background:linear-gradient(180deg,#fbfcfd,#f7fbff);color:#12202b;line-height:1.65;-webkit-font-smoothing:antialiased}
 
     /* skip link */
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px;z-index:1000}
+    .skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px;z-index:10000}
 
     .wrap{max-width:var(--container);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Poppins',sans-serif}
+    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Poppins',sans-serif}
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
-
-    /* subtle entrance animation */
-    @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
     /* Unified button styles */
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:0;transition:transform .14s ease,box-shadow .14s ease,filter .14s ease;font-family:'Poppins',sans-serif;text-decoration:none;color:var(--primary-contrast)}
@@ -70,46 +68,42 @@
     .btn-ghost:focus{outline:3px solid rgba(43,143,179,0.12);outline-offset:3px}
 
     /* Hero */
-    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:36px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));box-shadow:var(--shadow)}
-    .hero-left h1{font-size:clamp(22px,4vw,36px);margin:0 0 10px;font-family:'Poppins',sans-serif;color:var(--primary-dark)}
-    .hero-left p{color:var(--muted);margin:0 0 18px}
-    .btn-row{display:flex;gap:12px;align-items:center}
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));box-shadow:var(--shadow)}
+    .hero-left h1{font-size:clamp(20px,5vw,32px);margin:0 0 8px;font-family:'Poppins',sans-serif;color:var(--primary-dark)}
+    .hero-left p{color:var(--muted);margin:0 0 12px}
+    .btn-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 
-    .hero-right{min-height:240px;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef9ff,#fffaf2);} 
-    .hero-right img{width:100%;height:100%;object-fit:cover;opacity:0;animation:fadeUp .7s ease .15s forwards}
+    .hero-right{min-height:200px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef9ff,#fffaf2);} 
+    .hero-right img{width:100%;height:100%;object-fit:cover;opacity:0;animation:fadeUp .6s ease .12s forwards;border-radius:12px}
 
     /* Features */
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:28px}
-    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(9,20,30,0.04);transition:transform .18s ease,box-shadow .18s ease}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(9,20,30,0.04);transition:transform .18s ease,box-shadow .18s ease}
     .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(9,20,30,0.08)}
-    .card h3{margin:8px 0 6px;font-family:'Poppins',sans-serif}
-    .card p{color:var(--muted);margin:0}
-    .features .card{opacity:0;animation:fadeUp .6s ease forwards}
-    .card h3 i{margin-right:8px;color:var(--primary)}
+    .card h3{margin:6px 0 6px;font-family:'Poppins',sans-serif;font-size:16px}
+    .card p{color:var(--muted);margin:0;font-size:14px}
 
     /* Pricing */
-    .pricing{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-    .plan{flex:1;min-width:220px;background:linear-gradient(180deg,#fff,#fcfeff);border-radius:12px;padding:18px;border:1px solid rgba(15,53,75,0.03);transition:transform .18s ease}
-    .plan .price{font-size:20px;font-weight:800;color:var(--primary)}
+    .pricing{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .plan{flex:1;min-width:220px;background:linear-gradient(180deg,#fff,#fcfeff);border-radius:12px;padding:14px;border:1px solid rgba(15,53,75,0.03);transition:transform .18s ease}
+    .plan .price{font-size:18px;font-weight:800;color:var(--primary)}
     .plan h4 i{margin-right:8px;color:var(--primary)}
 
-    /* Workflow */
-    .flow{display:flex;flex-direction:column;gap:12px;margin-top:28px}
-    .flow .step{display:flex;gap:12px;align-items:flex-start}
-    .bubble{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ffd9a6);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-
     /* Samples */
-    .samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
-    .sample img{width:100%;height:150px;object-fit:cover;border-radius:8px;transition:transform .18s ease}
+    .samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:12px}
+    .sample img{width:100%;height:120px;object-fit:cover;border-radius:8px;transition:transform .18s ease}
     .sample:hover img{transform:scale(1.03)}
-    .sample .title i{margin-right:8px;color:var(--primary)}
+
+    /* Profile & WhyCheap */
+    #profile img{flex:0 0 100px;width:100px;height:100px}
+    #profile p, #whycheap p{font-size:15px}
 
     /* Contact */
-    .contact{margin-top:28px;background:linear-gradient(180deg,#ffffff,#f6fbff);padding:22px;border-radius:12px}
-    .contact-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .contact-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;background:linear-gradient(90deg,#fff,#fffef8);box-shadow:0 6px 18px rgba(9,20,30,0.04);transition:transform .18s ease;text-decoration:none;color:inherit}
+    .contact{margin-top:20px;background:linear-gradient(180deg,#ffffff,#f6fbff);padding:18px;border-radius:12px}
+    .contact-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .contact-item{display:flex;align-items:center;gap:10px;padding:10px;border-radius:12px;background:linear-gradient(90deg,#fff,#fffef8);box-shadow:0 6px 18px rgba(9,20,30,0.04);transition:transform .18s ease;text-decoration:none;color:inherit}
     .contact-item:hover{transform:translateY(-6px)}
-    .contact-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:20px}
+    .contact-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:white;font-size:18px}
     .contact-text{font-weight:700;font-family:'Poppins',sans-serif}
     .contact-sub{color:var(--muted);font-size:13px}
 
@@ -119,20 +113,32 @@
     .contact-item[data-type="phone"] .contact-icon{background:linear-gradient(135deg,var(--primary),#4bb0d3)}
     .contact-item[data-type="insta"] .contact-icon{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
 
-    footer{margin-top:36px;padding:20px 0;color:var(--muted);text-align:center}
+    footer{margin-top:28px;padding:16px 0;color:var(--muted);text-align:center;font-size:14px}
 
     /* Cookie banner */
-    .cookie-banner{position:fixed;left:16px;right:auto;bottom:16px;max-width:420px;background:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:12px;z-index:1002}
-    @media(max-width:600px){.cookie-banner{left:12px;right:12px;max-width:none;flex-direction:column}}
+    .cookie-banner{position:fixed;left:12px;right:12px;bottom:84px;max-width:420px;background:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:12px;z-index:10020}
 
-    @media(min-width:900px){.hero{grid-template-columns:1fr 460px}}
-    @media(max-width:899px){nav{display:none} .wrap{padding:16px} .contact-grid{flex-direction:column} .features{grid-template-columns:1fr}}
+    @media(min-width:900px){.hero{grid-template-columns:1fr 440px}}
+    @media(max-width:899px){
+      nav{display:block}
+      .wrap{padding:16px}
+      .contact-grid{flex-direction:column}
+      .features{grid-template-columns:1fr}
+      .cookie-banner{left:12px;right:12px;bottom:100px}
+      .sticky-ctawrap{right:12px;bottom:12px}
+      .btn{padding:14px 18px}
+    }
+    @media(max-width:420px){
+      .hero-right{min-height:160px}
+      .cookie-banner{bottom:120px}
+      .btn{padding:12px 14px;font-size:15px}
+    }
 
     /* Sticky CTA wrapper - vertical stack on right */
-    .sticky-ctawrap{position:fixed;right:16px;bottom:16px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;z-index:999}
-    .sticky-cta{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;box-shadow:0 8px 20px rgba(30,90,120,0.12);text-decoration:none;color:var(--primary-contrast);background:linear-gradient(90deg,var(--primary),var(--primary-dark))}
+    .sticky-ctawrap{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;z-index:10010}
+    .sticky-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;box-shadow:0 8px 20px rgba(30,90,120,0.12);text-decoration:none;color:var(--primary-contrast);background:linear-gradient(90deg,var(--primary),var(--primary-dark));font-weight:700}
     .sticky-cta.insta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:var(--primary-contrast);border:none;padding:10px 12px;box-shadow:0 8px 20px rgba(30,90,120,0.12)}
-    .sticky-cta i{font-size:18px}
+    .sticky-cta i{font-size:16px}
 
     /* focus styles for accessibility */
     a:focus, button:focus {outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
@@ -149,23 +155,6 @@
     "contactPoint":[{"@type":"ContactPoint","telephone":"+818046483440","contactType":"Customer Service","areaServed":"JP","availableLanguage":["Japanese"]}]
   }
   </script>
-<!-- Google Tag (gtag.js) - 設定するIDを置換してください -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}    
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
-  <!-- Microsoft Clarity（置換：CLARITY_ID） -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "CLARITY_ID");
-  </script>
 
 </head>
 <body>
@@ -179,12 +168,14 @@
           <div style="font-size:12px;color:var(--muted)">訪問看護・介護・就労支援向けの格安LP制作</div>
         </div>
       </div>
-      <nav aria-label="グローバルナビゲーション">
+
+      <nav aria-label="グローバルナビゲーション" id="globalNav">
         <a href="#service">サービス</a>
         <a href="#price">料金</a>
         <a href="#works">実績</a>
         <a href="#contact" class="cta">無料相談</a>
       </nav>
+
     </header>
 
     <main id="main" role="main">
@@ -199,15 +190,15 @@
           </div>
 
           <div class="features" aria-hidden="false">
-            <div class="card" role="article"><h3><i class="fa-solid fa-heart-pulse"></i> 業界特化</h3><p>介護・看護に精通したテンプレで安心の導入。</p></div>
-            <div class="card" role="article"><h3><i class="fa-solid fa-bolt"></i> スピード納品</h3><p>素材が揃えば最短2週間で公開可能。</p></div>
-            <div class="card" role="article"><h3><i class="fa-solid fa-hands-holding-child"></i> アフターサポート</h3><p>公開後の保守・更新も任せられます。</p></div>
-            <div class="card" role="article"><h3><i class="fa-solid fa-robot"></i> AI指導プラン</h3><p>HTMLを自分で作れるようになる指導付きプラン。</p></div>
+            <div class="card" role="article"><h3><i class="fa-solid fa-heart-pulse" aria-hidden="true"></i> 業界特化</h3><p>介護・看護に精通したテンプレで安心の導入。</p></div>
+            <div class="card" role="article"><h3><i class="fa-solid fa-bolt" aria-hidden="true"></i> スピード納品</h3><p>素材が揃えば最短2週間で公開可能。</p></div>
+            <div class="card" role="article"><h3><i class="fa-solid fa-hands-holding-child" aria-hidden="true"></i> アフターサポート</h3><p>公開後の保守・更新も任せられます。</p></div>
+            <div class="card" role="article"><h3><i class="fa-solid fa-robot" aria-hidden="true"></i> AI指導プラン</h3><p>HTMLを自分で作れるようになる指導付きプラン。</p></div>
           </div>
         </div>
 
         <div class="hero-right" aria-hidden="true">
-          <img src="https://raw.githubusercontent.com/crzydn/your-repo/main/images/hero.jpg" alt="スタッフが笑顔で話している写真。安心感のあるイメージ写真に差し替えてください。">
+          <img loading="lazy" src="https://raw.githubusercontent.com/crzydn/your-repo/main/images/hero.jpg" alt="スタッフが笑顔で話している写真。安心感のあるイメージ写真に差し替えてください。">
         </div>
       </section>
 
@@ -216,24 +207,24 @@
         <p style="color:var(--muted);margin-bottom:8px">お客様のニーズに合わせた3つの主要プラン</p>
         <div class="pricing" id="price">
           <div class="plan card" role="region" aria-labelledby="plan-light">
-            <h4 id="plan-light"><i class="fa-solid fa-feather-pointed"></i> ライト（格安）</h4>
+            <h4 id="plan-light"><i class="fa-solid fa-feather-pointed" aria-hidden="true"></i> ライト（格安）</h4>
             <div class="price">¥12,800〜</div>
             <p>1ページ（LP）制作、スマホ対応、基本SEO、素材は支給</p>
           </div>
           <div class="plan card" role="region" aria-labelledby="plan-ai">
-            <h4 id="plan-ai"><i class="fa-solid fa-robot"></i> 指導型（AI活用）</h4>
+            <h4 id="plan-ai"><i class="fa-solid fa-robot" aria-hidden="true"></i> 指導型（AI活用）</h4>
             <div class="price">¥24,800〜</div>
             <p>HTMLの作り方を一緒に学べるプラン。AIでの文章生成・構成支援付き。</p>
           </div>
           <div class="plan card" role="region" aria-labelledby="plan-maintain">
-            <h4 id="plan-maintain"><i class="fa-solid fa-screwdriver-wrench"></i> 保守プラン</h4>
+            <h4 id="plan-maintain"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> 保守プラン</h4>
             <div class="price">月額 ¥1,000〜</div>
             <p>サイトの更新・軽微な修正・セキュリティチェックを代行します。</p>
           </div>
         </div>
         <div style="text-align:center;margin-top:14px">
-          <a class="btn btn-primary" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談"><i class="fa-brands fa-line" aria-hidden="true"></i> まずはLINEで無料相談</a>
-          <a class="btn btn-primary" href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i> InstagramでDMする</a>
+          <a class="btn btn-primary" id="ctaLine" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談"><i class="fa-brands fa-line" aria-hidden="true"></i> まずはLINEで無料相談</a>
+          <a class="btn btn-primary" id="ctaInsta" href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i> InstagramでDMする</a>
         </div>
       </section>
 
@@ -248,16 +239,16 @@
       <section id="works" aria-labelledby="works-heading">
         <h2 id="works-heading" style="font-weight:700;font-size:18px;margin-top:28px">制作サンプル</h2>
         <div class="samples">
-          <div class="sample card"><img src="https://your-domain.example/images/sample1.jpg" alt="訪問看護ステーションのサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-hospital"></i><b> 訪問看護ステーションA</b></div><div style="color:var(--muted);font-size:13px">導入3ヶ月で問い合わせが増加</div></div></div>
-          <div class="sample card"><img src="https://your-domain.example/images/sample2.jpg" alt="就労支援のサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-briefcase"></i><b> 就労支援B</b></div><div style="color:var(--muted);font-size:13px">求人応募につながった事例</div></div></div>
-          <div class="sample card"><img src="https://your-domain.example/images/sample3.jpg" alt="訪問介護のサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-house-user"></i><b> 訪問介護C</b></div><div style="color:var(--muted);font-size:13px">地域密着型デザイン</div></div></div>
+          <div class="sample card"><img loading="lazy" src="https://your-domain.example/images/sample1.jpg" alt="訪問看護ステーションのサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-hospital" aria-hidden="true"></i><b> 訪問看護ステーションA</b></div><div style="color:var(--muted);font-size:13px">導入3ヶ月で問い合わせが増加</div></div></div>
+          <div class="sample card"><img loading="lazy" src="https://your-domain.example/images/sample2.jpg" alt="就労支援のサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><b> 就労支援B</b></div><div style="color:var(--muted);font-size:13px">求人応募につながった事例</div></div></div>
+          <div class="sample card"><img loading="lazy" src="https://your-domain.example/images/sample3.jpg" alt="訪問介護のサンプルデザイン"><div style="padding-top:8px"><div class="title"><i class="fa-solid fa-house-user" aria-hidden="true"></i><b> 訪問介護C</b></div><div style="color:var(--muted);font-size:13px">地域密着型デザイン</div></div></div>
         </div>
       </section>
 
       <section id="profile" aria-labelledby="profile-heading" class="card" style="margin-top:24px;padding:18px">
         <h2 id="profile-heading" style="font-weight:700;font-size:18px">代表プロフィール</h2>
         <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap">
-          <img src="https://raw.githubusercontent.com/crzydn/your-repo/main/images/profile.jpg" alt="代表のプロフィール写真（差し替えてください）" style="width:120px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 120px">
+          <img loading="lazy" src="https://raw.githubusercontent.com/crzydn/your-repo/main/images/profile.jpg" alt="代表のプロフィール写真（差し替えてください）" style="width:120px;height:120px;object-fit:cover;border-radius:12px;flex:0 0 120px">
           <div style="flex:1">
             <p style="margin-top:0;color:var(--muted)">はじめまして。私は個人でウェブ制作を行っているフリーランスです。訪問看護・訪問介護・就労支援に従事する方々の“想い”や“地域での活動”をウェブで丁寧に伝えたいと考え、このサービスを始めました。現場の仕事を尊重し、利用者さまやご家族に安心感を与える表現を大切にしています。</p>
             <p style="color:var(--muted)">私が大切にしていること：<br>・分かりやすさと親しみやすさ、誠実な情報発信。<br>・小さく始めて、必要に応じて育てる運用支援。<br>・業界特有の表現や配慮（要配慮情報の扱い）への慎重な対応。</p>
@@ -402,8 +393,8 @@
 
   <!-- Cookie banner -->
   <div id="cookie" class="cookie-banner" role="region" aria-live="polite" style="display:none">
-    <div>当サイトではファイルの取得や利便性向上のためクッキーを使用します。続行すると同意したものとみなします。</div>
-    <div style="display:flex;gap:8px"><button id="acceptCookie" class="btn btn-primary">同意して続行</button><button id="manageCookie" class="btn btn-ghost">詳しく</button></div>
+    <div>当サイトではファイルの取得や利便性向上のためクッキーを使用します。解析ツール（例：GA4、Clarity）は同意後に有効になります。続行すると同意したものとみなします。</div>
+    <div style="display:flex;gap:8px"><button id="acceptCookie" class="btn btn-primary">同意して続行</button><button id="declineCookie" class="btn btn-ghost">拒否する</button><button id="manageCookie" class="btn btn-ghost">詳しく</button></div>
   </div>
 
   <noscript><div style="padding:12px;background:#fff3cd;border-radius:8px;margin:16px 28px;color:#664d03">JavaScriptが無効です。一部機能が動作しません。</div></noscript>
@@ -412,21 +403,48 @@
     // Year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Cookie banner logic
+    // Cookie banner logic + deferred analytics loading
+    const GA_ID = 'G-XXXXXXXXXX'; // ここを実IDに置換してください
+    const CLARITY_ID = 'CLARITY_ID'; // ここを実IDに置換してください
+
     function setCookie(name,value,days){var d=new Date();d.setTime(d.getTime()+(days*24*60*60*1000));document.cookie=name+"="+value+";path=/;expires="+d.toUTCString();}
     function getCookie(name){var v=document.cookie.match('(^|;) ?'+name+'=([^;]*)(;|$)');return v?v[2]:null}
-    if(!getCookie('site_cookie_consent')){document.getElementById('cookie').style.display='flex'}
-    document.getElementById('acceptCookie').addEventListener('click',function(){setCookie('site_cookie_consent','1',365);document.getElementById('cookie').style.display='none'})
+
+    function loadAnalytics(){
+      // GA
+      if(!window.gtag && GA_ID){
+        var gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id='+GA_ID;
+        document.head.appendChild(gtagScript);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function(){dataLayer.push(arguments);}    
+        gtag('js', new Date());
+        gtag('config', GA_ID, { 'anonymize_ip': true });
+      }
+      // Clarity
+      if(CLARITY_ID && !window.clarity){
+        (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, 'clarity', 'script', CLARITY_ID);
+      }
+    }
+
+    if(!getCookie('site_cookie_consent')){document.getElementById('cookie').style.display='flex'} else {
+      if(getCookie('site_cookie_consent')==='1') loadAnalytics();
+    }
+
+    document.getElementById('acceptCookie').addEventListener('click',function(){setCookie('site_cookie_consent','1',365);document.getElementById('cookie').style.display='none';loadAnalytics();});
+    document.getElementById('declineCookie').addEventListener('click',function(){setCookie('site_cookie_consent','0',365);document.getElementById('cookie').style.display='none';});
     document.getElementById('manageCookie').addEventListener('click',function(){document.getElementById('privacy').scrollIntoView({behavior:'smooth'})})
 
-    // remove form handlers (no form used) - safe guards
-    var form = document.getElementById('contact-form');
-    if(form){
-      form.addEventListener('submit', function(e){e.preventDefault();alert('フォームは無効です。LINE・メール・電話でお問い合わせください。');});
-    }
+    // ensure contact links are large enough for touch
+    document.querySelectorAll('.contact-item').forEach(function(el){el.setAttribute('tabindex','0')});
 
     // Smooth scroll for anchors
     document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const href=a.getAttribute('href'); if(href.length>1){e.preventDefault(); document.querySelector(href).scrollIntoView({behavior:'smooth'})}})})
+
+    // disable any forms (none expected)
+    var form = document.getElementById('contact-form');
+    if(form){form.addEventListener('submit', function(e){e.preventDefault();alert('フォームは無効です。LINE・メール・電話でお問い合わせください。');});}
   </script>
 
 </body>
