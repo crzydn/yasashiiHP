@@ -142,12 +142,6 @@
     .sticky-cta:focus{outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
 
     a:focus, button:focus {outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
-
-    /* 法令公開／DX用の最小スタイル */
-    .legal{background:linear-gradient(180deg,#fff,#fffaf6);padding:16px;border-radius:12px;border:1px solid rgba(2,18,24,0.06);box-shadow:0 8px 18px rgba(2,18,24,0.04)}
-    .legal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-    .legal table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden}
-    .legal td{border:1px solid #e7edf1;padding:8px 10px;font-size:14px;vertical-align:top}
   </style>
 
   <!-- 構造化データ（Organization） -->
@@ -309,58 +303,6 @@
         <details class="q"><summary>制作にどれくらい時間がかかりますか？</summary><div style="color:var(--muted);padding-top:8px">文章・写真が揃っている場合、最短2週間で公開できます。ヒアリングの内容により前後します。</div></details>
         <details class="q"><summary>支払い方法は？</summary><div style="color:var(--muted);padding-top:8px">銀行振込・PayPal（要相談）。分割や月額プランも対応可能です。</div></details>
         <details class="q"><summary>自分で更新できますか？</summary><div style="color:var(--muted);padding-top:8px">指導型プランでは、ご自身でHTMLを編集するためのレクチャーを行います。</div></details>
-      </section>
-
-      <!-- ★ 法令対応：公開例（実データに差し替えて運用） -->
-      <section id="legal" class="card" style="margin-top:20px;padding:18px">
-        <h2 style="font-weight:700;font-size:18px">法令に基づく情報公開（掲載例）</h2>
-        <div class="legal">
-          <p>以下は訪問看護・介護等の事業者向けに、ウェブで公表が推奨・要求される情報の<strong>掲載例</strong>です。実データに差し替え、自治体様式に合わせて更新してください。</p>
-          <div class="legal-grid">
-            <div>
-              <h3 style="margin:6px 0 6px">事業所情報（例）</h3>
-              <table>
-                <tbody>
-                  <tr><td>事業所名</td><td>〇〇訪問看護ステーション</td></tr>
-                  <tr><td>運営主体</td><td>合同会社〇〇</td></tr>
-                  <tr><td>事業所番号</td><td>28-xxxxxxxxxx</td></tr>
-                  <tr><td>所在地</td><td>兵庫県尼崎市〇〇-〇〇-〇</td></tr>
-                  <tr><td>連絡先</td><td>080-4648-3440 / yasashiihp@gmail.com</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <div>
-              <h3 style="margin:6px 0 6px">運営規程の概要（例）</h3>
-              <table>
-                <tbody>
-                  <tr><td>提供サービス</td><td>医療的ケア / リハ支援 / ターミナル 等</td></tr>
-                  <tr><td>サービスエリア</td><td>尼崎市・西宮市 ほか</td></tr>
-                  <tr><td>営業日・時間</td><td>平日 9:00-18:00（24時間連絡体制）</td></tr>
-                  <tr><td>料金の概要</td><td>保険適用・加算・自費は重要事項に記載</td></tr>
-                  <tr><td>苦情相談窓口</td><td>管理者：〇〇（連絡先：上記）</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-            <a class="btn btn-primary" href="un_ei_kitei.pdf" target="_blank" rel="noopener noreferrer" aria-label="運営規程PDF（例）"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i> 運営規程（PDF）</a>
-            <a class="btn btn-ghost" href="juuyou_jikou.pdf" target="_blank" rel="noopener noreferrer" aria-label="重要事項説明書PDF（例）"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> 重要事項説明書（PDF）</a>
-          </div>
-          <p style="margin:10px 0 0;color:var(--muted);font-size:13px">※最終的な記載項目は所轄行政の指示・様式に従ってください。</p>
-        </div>
-      </section>
-
-      <!-- ★ 医療DX推進体制（掲載例） -->
-      <section id="dx" class="card" style="margin-top:16px;padding:18px">
-        <h2 style="font-weight:700;font-size:18px">医療DX推進体制（掲載例）</h2>
-        <div class="legal">
-          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
-            <li>オンライン資格確認：導入済（取扱指針に基づき運用）</li>
-            <li>情報連携体制：主治医・関係機関と同意の範囲で情報共有</li>
-            <li>個人情報保護：通信の暗号化／アクセス権管理／保存期間の明確化</li>
-            <li>公表・更新：本ページで継続公表、年1回以上の見直し</li>
-          </ul>
-        </div>
       </section>
 
       <section id="contact" class="contact" aria-labelledby="contact-heading">
