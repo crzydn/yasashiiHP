@@ -100,8 +100,10 @@
     .contact-sub{color:var(--muted);font-size:13px}
 
     .contact-item[data-type="line"] .contact-icon{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
-    .contact-item[data-type="email"] .contact-icon{background:linear-gradient(135deg,var(--primary),#66b8dd))}
-    .contact-item[data-type="phone"] .contact-icon{background:linear-gradient(135deg,var(--primary),#4bb0d3))}
+    /* ▼▼ ここを修正（余分な ) を削除） ▼▼ */
+    .contact-item[data-type="email"] .contact-icon{background:linear-gradient(135deg,var(--primary),#66b8dd)}
+    .contact-item[data-type="phone"] .contact-icon{background:linear-gradient(135deg,var(--primary),#4bb0d3)}
+    /* ▲▲ 修正ここまで ▲▲ */
     .contact-item[data-type="insta"] .contact-icon{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
 
     footer{margin-top:28px;padding:16px 0;color:var(--muted);text-align:center;font-size:14px}
@@ -127,14 +129,14 @@
       .cookie-banner{left:12px;right:12px;bottom:140px}
       .sticky-ctawrap{right:12px;bottom:12px}
       .btn{padding:14px 18px}
-      .cta-pair .btn{min-width:46%} /* 2つで並ぶ目安 */
+      .cta-pair .btn{min-width:46%}
     }
     @media(max-width:420px){
       .hero-right{min-height:160px}
       .cookie-banner{bottom:160px}
       .btn{padding:12px 14px;font-size:15px}
       nav a{font-size:14px;padding:6px}
-      .cta-pair .btn{min-width:100%} /* 極小幅では縦積みだが幅を取りすぎない */
+      .cta-pair .btn{min-width:100%}
     }
 
     .sticky-ctawrap{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;z-index:10010}
@@ -174,6 +176,8 @@
         <a href="#service"><i class="fa-solid fa-list" aria-hidden="true"></i> サービス</a>
         <a href="#price"><i class="fa-solid fa-tag" aria-hidden="true"></i> 料金</a>
         <a href="#works"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i> 実績</a>
+        <!-- ▼ 新規：ツール紹介へのリンク -->
+        <a href="#tools"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> ツール</a>
         <a href="#contact" class="cta"><i class="fa-solid fa-comments" aria-hidden="true"></i> 無料相談</a>
       </nav>
     </header>
@@ -223,7 +227,7 @@
           </div>
         </div>
 
-        <!-- サービス内容下のCTA（横並び・幅取りすぎない） -->
+        <!-- サービス内容下のCTA（横並び） -->
         <div class="cta-pair" style="margin-top:14px">
           <a class="btn btn-primary" id="ctaLine" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談"><i class="fa-brands fa-line" aria-hidden="true"></i> LINEで無料相談</a>
           <a class="btn btn-primary" id="ctaInsta" href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i> InstagramでDM</a>
@@ -275,6 +279,50 @@
           </div>
         </div>
       </section>
+
+      <!-- ▼ 新規：ツール紹介 -->
+      <section id="tools" aria-labelledby="tools-heading" class="card" style="margin-top:24px;padding:18px">
+        <h2 id="tools-heading" style="font-weight:700;font-size:18px">運用に役立つ無料ツール</h2>
+        <p style="color:var(--muted);margin:8px 0 14px">
+          制作後の<span style="font-weight:700">日々の運用</span>まで考えた提案をしています。職員のシフト作成・共有に便利な自作ツールを公開しています（スマホ対応）。
+        </p>
+
+        <div class="tools-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <!-- かんたんシフト表メーカー -->
+          <article class="card" style="padding:14px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div class="contact-icon" aria-hidden="true" style="width:44px;height:44px"><i class="fa-solid fa-table"></i></div>
+              <div style="font-weight:700">かんたんシフト表メーカー</div>
+            </div>
+            <ul style="color:var(--muted);padding-left:18px;margin:0 0 12px">
+              <li>ブラウザだけで使える（インストール不要）</li>
+              <li>日付自動生成／役職ラベル／簡単出力</li>
+              <li>スマホでの閲覧・調整に最適化</li>
+            </ul>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a class="btn btn-primary" href="https://crzydn.github.io/schedule-shift/" target="_blank" rel="noopener noreferrer" aria-label="シフト表ツールのデモを見る">
+                <i class="fa-solid fa-play" aria-hidden="true"></i> デモを見る
+              </a>
+              <a class="btn btn-ghost" href="https://crzydn.github.io/schedule-shift/" target="_blank" rel="noopener noreferrer" aria-label="使い方を見る">
+                <i class="fa-solid fa-circle-question" aria-hidden="true"></i> 使い方
+              </a>
+            </div>
+          </article>
+
+          <!-- 予備カード（将来の拡張用） -->
+          <article class="card" style="padding:14px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div class="contact-icon" aria-hidden="true" style="width:44px;height:44px"><i class="fa-solid fa-file-lines"></i></div>
+              <div style="font-weight:700">帳票テンプレ（準備中）</div>
+            </div>
+            <p style="color:var(--muted);margin:0 0 12px">見積／請求／納品チェックリストなど、運用に使える雛形を順次公開予定。</p>
+            <a class="btn btn-ghost" href="#contact" aria-label="公開通知を受け取る">
+              <i class="fa-solid fa-bell" aria-hidden="true"></i> 公開通知（問い合わせ）
+            </a>
+          </article>
+        </div>
+      </section>
+      <!-- ▲ ツール紹介ここまで -->
 
       <section id="profile" aria-labelledby="profile-heading" class="card" style="margin-top:24px;padding:18px">
         <h2 id="profile-heading" style="font-weight:700;font-size:18px">代表プロフィール</h2>
@@ -348,12 +396,11 @@
         <div style="margin-top:12px;color:var(--muted);font-size:13px">※お問い合わせはLINE・メール・お電話・InstagramのDMで承ります。お問い合わせフォームは廃止しました。</div>
       </section>
 
-      <!-- 既存のプライバシーポリシーはそのまま -->
+      <!-- 既存のプライバシーポリシー（ダイジェスト） -->
       <section id="privacy" class="card" aria-labelledby="privacy-heading" style="margin-top:18px;padding:18px">
         <h2 id="privacy-heading" style="font-weight:700;font-size:18px">プライバシーポリシー（個人情報の取扱い）</h2>
         <div style="color:var(--muted)">
-          <!-- 既存本文そのまま（割愛） -->
-          <p>当サイト（やさしいHPプラン）は、訪問看護・訪問介護・就労支援事業者さま向けのウェブ制作サービスを提供するにあたり、個人情報の重要性を深く認識し、以下のとおり適切に取り扱いいたします。</p>
+          <p>当サイト（やさしいHPプラン）は、訪問看護・訪問介護・就労支援事業者さま向けのウェブ制作サービスを提供するにあたり、個人情報の重要性を深く認識し、適切に取り扱います。</p>
           <p>（中略）</p>
           <p>最終改定日：2025年9月19日</p>
         </div>
