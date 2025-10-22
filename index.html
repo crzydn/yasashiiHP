@@ -52,7 +52,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --container:1100px;
       --shadow:0 10px 30px rgba(11,22,35,0.06);
       font-family:'Noto Sans JP','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
-    }
+logo-size: clamp(40px, 6vw, 56px);
+}
 
     html {font-size:16px;}
     *{box-sizing:border-box}
@@ -65,8 +66,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .wrap{max-width:var(--container);margin:0 auto;padding:28px}
     header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap}
     .brand{display:flex;align-items:center;gap:12px;min-width:0}
-    .logo{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-family:'Poppins',sans-serif;flex:0 0 auto}
-    nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
+
+.logo{
+  width: var(--logo-size);
+  height: var(--logo-size);
+  border-radius: 12px;          /* 角丸を維持 */
+  object-fit: cover;            /* 正方形にトリミング */
+  object-position: center;      /* 中央を見せる */
+  display: block;               /* 余計な隙間を防ぐ */
+  flex: 0 0 auto;               /* brand内レイアウトを安定 */
+  /* 背景グラデ等は削除（画像が見えなくなるため） */
+}
+
+.brand{ align-items: center; min-width: 0; }
+     nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap}
     .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
