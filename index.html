@@ -78,7 +78,36 @@ logo-size: clamp(40px, 6vw, 56px);
   /* 背景グラデ等は削除（画像が見えなくなるため） */
 }
 
-.brand{ align-items: center; min-width: 0; }
+/* ナビ左の小さなロゴ（“サービス”の左隣） */
+.nav-logo{
+  display:inline-flex;
+  align-items:center;
+  padding:0;             /* 文字リンクと高さを合わせる */
+  margin-right:6px;      /* サービスとの間隔 */
+}
+.nav-logo img{
+  width:28px;            /* ボタン高さに馴染むサイズ */
+  height:28px;
+  border-radius:6px;     /* 角丸 */
+  object-fit:cover;      /* 正方形トリミング */
+  display:block;
+}
+
+/* もし .logo（ブランド側）を img に替えている場合の推奨（巨大化防止） */
+.brand .logo{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  object-fit:cover;
+  display:block;
+}
+
+/* モバイル時に少しだけロゴを小さくすると詰まりにくい */
+@media(max-width:899px){
+  .nav-logo img{ width:24px; height:24px; }
+}
+
+    
      nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
     nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap}
     .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
@@ -197,15 +226,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="skip-link" href="#main">本文へスキップ</a>
   <div class="wrap">
     <header role="banner">
-      <div class="brand">
-<img class="logo" src="yasashiiHPlogo.jpg" alt="やさしいHPプラン ロゴ">
-        <div>
           <div style="font-weight:700">やさしいHPプラン</div>
           <div style="font-size:12px;color:var(--muted)">訪問看護・介護・就労支援向けの格安LP制作</div>
         </div>
       </div>
 
       <nav aria-label="グローバルナビゲーション" id="globalNav">
+          <a class="nav-logo" href="#top" aria-label="トップへ">
+            <img src="yasashiiHPlogo.jpg" alt="やさしいHPプラン ロゴ">
+          </a>
         <a href="#service"><i class="fa-solid fa-list" aria-hidden="true"></i> サービス</a>
         <a href="#price"><i class="fa-solid fa-tag" aria-hidden="true"></i> 料金</a>
         <a href="#works"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i> 実績</a>
