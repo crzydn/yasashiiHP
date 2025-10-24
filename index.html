@@ -2,21 +2,21 @@
 <html lang="ja">
 <head>
   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TMQVJ2G9');</script>
-<!-- End Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TMQVJ2G9');</script>
+  <!-- End Google Tag Manager -->
 
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "tu2kl2fr2v");
-</script>
-  
+  </script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>やさしいHPプラン — 訪問看護・介護向け格安ワンページ制作</title>
@@ -51,9 +51,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       --radius:14px;
       --container:1100px;
       --shadow:0 10px 30px rgba(11,22,35,0.06);
+      --logo-size: clamp(40px, 6vw, 56px); /* 正しいCSS変数名 */
       font-family:'Noto Sans JP','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
-logo-size: clamp(40px, 6vw, 56px);
-}
+    }
 
     html {font-size:16px;}
     *{box-sizing:border-box}
@@ -64,54 +64,31 @@ logo-size: clamp(40px, 6vw, 56px);
     .skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px;z-index:10000}
 
     .wrap{max-width:var(--container);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap}
+
+    /* ===== Header ===== */
+    header{display:flex;align-items:center;justify-content:space-between;padding:12px 0;flex-wrap:wrap;gap:12px}
     .brand{display:flex;align-items:center;gap:12px;min-width:0}
+    .brand .logo{
+      width:var(--logo-size);
+      height:var(--logo-size);
+      border-radius:12px;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+      flex:0 0 auto;
+    }
+    .brand .title{font-weight:700;line-height:1}
+    .brand .subtitle{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
 
-.logo{
-  width: var(--logo-size);
-  height: var(--logo-size);
-  border-radius: 12px;          /* 角丸を維持 */
-  object-fit: cover;            /* 正方形にトリミング */
-  object-position: center;      /* 中央を見せる */
-  display: block;               /* 余計な隙間を防ぐ */
-  flex: 0 0 auto;               /* brand内レイアウトを安定 */
-  /* 背景グラデ等は削除（画像が見えなくなるため） */
-}
-
-/* ナビ左の小さなロゴ（“サービス”の左隣） */
-.nav-logo{
-  display:inline-flex;
-  align-items:center;
-  padding:0;             /* 文字リンクと高さを合わせる */
-  margin-right:6px;      /* サービスとの間隔 */
-}
-.nav-logo img{
-  width:28px;            /* ボタン高さに馴染むサイズ */
-  height:28px;
-  border-radius:6px;     /* 角丸 */
-  object-fit:cover;      /* 正方形トリミング */
-  display:block;
-}
-
-/* もし .logo（ブランド側）を img に替えている場合の推奨（巨大化防止） */
-.brand .logo{
-  width:48px;
-  height:48px;
-  border-radius:12px;
-  object-fit:cover;
-  display:block;
-}
-
-/* モバイル時に少しだけロゴを小さくすると詰まりにくい */
-@media(max-width:899px){
-  .nav-logo img{ width:24px; height:24px; }
-}
-
-    
-     nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
-    nav a{margin-left:18px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap}
+    nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
+    nav a{margin-left:6px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
     .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
+    /* ナビ左の小ロゴ（任意） */
+    .nav-logo{display:inline-flex;align-items:center;margin-right:4px;padding:0}
+    .nav-logo img{width:28px;height:28px;border-radius:6px;object-fit:cover;display:block}
+
+    /* ===== Common Buttons ===== */
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:0;transition:transform .14s ease,box-shadow .14s ease,filter .14s ease;font-family:'Poppins',sans-serif;text-decoration:none;color:var(--primary-contrast)}
     .btn i{font-size:18px}
     .btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-dark));box-shadow:0 8px 20px rgba(30,90,120,0.12);color:var(--primary-contrast)}
@@ -121,16 +98,16 @@ logo-size: clamp(40px, 6vw, 56px);
     .btn-ghost:hover{background:rgba(43,143,179,0.04);transform:translateY(-2px)}
     .btn-ghost:focus{outline:3px solid rgba(43,143,179,0.12);outline-offset:3px}
 
+    /* ===== Hero ===== */
     .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));box-shadow:var(--shadow)}
     .hero-left h1{font-size:clamp(20px,5vw,32px);margin:0 0 8px;font-family:'Poppins',sans-serif;color:var(--primary-dark)}
     .hero-left p{color:var(--muted);margin:0 0 12px}
     .btn-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
-
     .hero-right{min-height:200px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#eef9ff,#fffaf2);} 
     .hero-right img{width:100%;height:100%;object-fit:cover;opacity:0;animation:fadeUp .6s ease .12s forwards;border-radius:12px}
-
     @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
+    /* ===== Cards / Sections ===== */
     .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
     .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 6px 18px rgba(9,20,30,0.04);transition:transform .18s ease,box-shadow .18s ease}
     .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(9,20,30,0.08)}
@@ -158,10 +135,8 @@ logo-size: clamp(40px, 6vw, 56px);
     .contact-sub{color:var(--muted);font-size:13px}
 
     .contact-item[data-type="line"] .contact-icon{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
-    /* ▼▼ ここを修正（余分な ) を削除） ▼▼ */
     .contact-item[data-type="email"] .contact-icon{background:linear-gradient(135deg,var(--primary),#66b8dd)}
     .contact-item[data-type="phone"] .contact-icon{background:linear-gradient(135deg,var(--primary),#4bb0d3)}
-    /* ▲▲ 修正ここまで ▲▲ */
     .contact-item[data-type="insta"] .contact-icon{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
 
     footer{margin-top:28px;padding:16px 0;color:var(--muted);text-align:center;font-size:14px}
@@ -175,11 +150,15 @@ logo-size: clamp(40px, 6vw, 56px);
     .cta-pair .btn i{font-size:16px}
     .cta-pair .btn{min-width:200px}
 
-    @media(min-width:900px){.hero{grid-template-columns:1fr 440px}}
+    /* ===== Responsive ===== */
+    @media(min-width:900px){
+      .hero{grid-template-columns:1fr 440px}
+    }
     @media(max-width:899px){
       header{align-items:center}
       nav{order:2;width:100%;display:flex;justify-content:space-around;padding:8px 0;margin-top:8px;flex-wrap:wrap}
-      .brand{order:1;width:100%;display:flex;justify-content:space-between;align-items:center}
+      .brand{order:1;width:100%;display:flex;justify-content:flex-start}
+      .nav-logo img{ width:24px; height:24px; }
       nav a{margin-left:0;padding:8px 6px;font-size:15px}
       .wrap{padding:16px}
       .contact-grid{flex-direction:column}
@@ -197,6 +176,7 @@ logo-size: clamp(40px, 6vw, 56px);
       .cta-pair .btn{min-width:100%}
     }
 
+    /* Sticky CTAs */
     .sticky-ctawrap{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;z-index:10010}
     .sticky-cta{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;box-shadow:0 8px 20px rgba(30,90,120,0.12);text-decoration:none;color:var(--primary-contrast);background:linear-gradient(90deg,var(--primary),var(--primary-dark));font-weight:700;padding:0}
     .sticky-cta i{font-size:20px;line-height:1}
@@ -220,31 +200,40 @@ logo-size: clamp(40px, 6vw, 56px);
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMQVJ2G9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMQVJ2G9"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <a class="skip-link" href="#main">本文へスキップ</a>
   <div class="wrap">
+
+    <!-- ===== Header ===== -->
     <header role="banner">
-          <div style="font-weight:700">やさしいHPプラン</div>
-          <div style="font-size:12px;color:var(--muted)">訪問看護・介護・就労支援向けの格安LP制作</div>
+      <div class="brand">
+        <a href="#top" aria-label="トップへ" class="brand-link">
+          <img class="logo" src="yasashiiHPlogo.jpg" alt="やさしいHPプラン ロゴ">
+        </a>
+        <div>
+          <div class="title">やさしいHPプラン</div>
+          <div class="subtitle">訪問看護・介護・就労支援向けの格安LP制作</div>
         </div>
       </div>
 
       <nav aria-label="グローバルナビゲーション" id="globalNav">
-          <a class="nav-logo" href="#top" aria-label="トップへ">
-            <img src="yasashiiHPlogo.jpg" alt="やさしいHPプラン ロゴ">
-          </a>
+        <a class="nav-logo" href="#top" aria-label="トップへ">
+          <img src="yasashiiHPlogo.jpg" alt="">
+        </a>
         <a href="#service"><i class="fa-solid fa-list" aria-hidden="true"></i> サービス</a>
         <a href="#price"><i class="fa-solid fa-tag" aria-hidden="true"></i> 料金</a>
         <a href="#works"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i> 実績</a>
-        <!-- ▼ 新規：ツール紹介へのリンク -->
         <a href="#tools"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i> ツール</a>
         <a href="#contact" class="cta"><i class="fa-solid fa-comments" aria-hidden="true"></i> 無料相談</a>
       </nav>
     </header>
+    <!-- ==== /Header ==== -->
 
     <main id="main" role="main">
+      <!-- ===== Hero ===== -->
       <section class="hero" aria-labelledby="hero-heading">
         <div class="hero-left">
           <h1 id="hero-heading">全国対応・格安で作る、安心のワンページLP</h1>
@@ -268,6 +257,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <!-- ===== Services ===== -->
       <section id="service" aria-labelledby="service-heading">
         <h2 id="service-heading" style="margin-top:18px">サービス内容</h2>
         <p style="color:var(--muted);margin-bottom:8px">お客様のニーズに合わせた3つの主要プラン</p>
@@ -289,13 +279,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
 
-        <!-- サービス内容下のCTA（横並び） -->
+        <!-- サービス内容下のCTA -->
         <div class="cta-pair" style="margin-top:14px">
           <a class="btn btn-primary" id="ctaLine" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談"><i class="fa-brands fa-line" aria-hidden="true"></i> LINEで無料相談</a>
           <a class="btn btn-primary" id="ctaInsta" href="https://instagram.com/yasashiihp" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i> InstagramでDM</a>
         </div>
       </section>
 
+      <!-- ===== Flow ===== -->
       <section class="flow" aria-labelledby="flow-heading" style="margin-top:24px">
         <h2 id="flow-heading" style="font-weight:700;font-size:18px">制作の流れ</h2>
         <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;justify-content:center">
@@ -318,6 +309,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <!-- ===== Works ===== -->
       <section id="works" aria-labelledby="works-heading">
         <h2 id="works-heading" style="font-weight:700;font-size:18px;margin-top:28px">制作サンプル</h2>
         <div class="samples">
@@ -333,7 +325,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div style="color:var(--muted);font-size:13px">公開LPを見る（外部リンク）</div>
             </a>
           </div>
-           <div class="sample card">
+          <div class="sample card">
             <a href="https://crzydn.github.io/shuroushien/" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit;padding:8px">
               <div class="title" style="margin-bottom:6px"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><b> 就労支援C</b></div>
               <div style="color:var(--muted);font-size:13px">公開LPを見る（外部リンク）</div>
@@ -342,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
-      <!-- ▼ 新規：ツール紹介 -->
+      <!-- ===== Tools ===== -->
       <section id="tools" aria-labelledby="tools-heading" class="card" style="margin-top:24px;padding:18px">
         <h2 id="tools-heading" style="font-weight:700;font-size:18px">運用に役立つ無料ツール</h2>
         <p style="color:var(--muted);margin:8px 0 14px">
@@ -372,8 +364,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </article>
         </div>
       </section>
-      <!-- ▲ ツール紹介ここまで -->
 
+      <!-- ===== Profile ===== -->
       <section id="profile" aria-labelledby="profile-heading" class="card" style="margin-top:24px;padding:18px">
         <h2 id="profile-heading" style="font-weight:700;font-size:18px">代表プロフィール</h2>
         <div style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap">
@@ -385,6 +377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <!-- ===== Why cheap ===== -->
       <section id="whycheap" aria-labelledby="whycheap-heading" class="card" style="margin-top:18px;padding:18px">
         <h2 id="whycheap-heading" style="font-weight:700;font-size:18px">なぜこんなに格安で提供できるのか</h2>
         <div style="color:var(--muted)">
@@ -398,6 +391,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <!-- ===== FAQ ===== -->
       <section class="faq" aria-labelledby="faq-heading">
         <h2 id="faq-heading" style="font-weight:700;font-size:18px;margin-top:28px">よくある質問</h2>
         <details class="q"><summary>制作にどれくらい時間がかかりますか？</summary><div style="color:var(--muted);padding-top:8px">文章・写真が揃っている場合、最短2週間で公開できます。ヒアリングの内容により前後します。</div></details>
@@ -405,6 +399,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <details class="q"><summary>自分で更新できますか？</summary><div style="color:var(--muted);padding-top:8px">指導型プランでは、ご自身でHTMLを編集するためのレクチャーを行います。</div></details>
       </section>
 
+      <!-- ===== Contact ===== -->
       <section id="contact" class="contact" aria-labelledby="contact-heading">
         <h2 id="contact-heading" style="font-weight:700;font-size:18px">お問い合わせ（ご連絡先）</h2>
         <p style="color:var(--muted)">以下の方法でお気軽にご相談ください。無料相談・受付時間：平日 9:00〜18:00</p>
@@ -446,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div style="margin-top:12px;color:var(--muted);font-size:13px">※お問い合わせはLINE・メール・お電話・InstagramのDMで承ります。お問い合わせフォームは廃止しました。</div>
       </section>
 
-      <!-- 既存のプライバシーポリシー（ダイジェスト） -->
+      <!-- ===== Privacy ===== -->
       <section id="privacy" class="card" aria-labelledby="privacy-heading" style="margin-top:18px;padding:18px">
         <h2 id="privacy-heading" style="font-weight:700;font-size:18px">プライバシーポリシー（個人情報の取扱い）</h2>
         <div style="color:var(--muted)">
@@ -465,7 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Sticky CTAs (icon-only) -->
   <div class="sticky-ctawrap" aria-hidden="false">
     <a class="sticky-cta" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="公式LINEで相談"><i class="fa-brands fa-line" aria-hidden="true"></i></a>
-    <a class="sticky-cta insta" href="https://instagram.com/your_instagram" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+    <a class="sticky-cta insta" href="https://instagram.com/yasashiihp" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
   </div>
 
   <!-- Cookie banner -->
@@ -515,11 +510,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.querySelectorAll('.contact-item').forEach(function(el){el.setAttribute('tabindex','0')});
 
     // Smooth scroll for anchors
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const href=a.getAttribute('href'); if(href.length>1){e.preventDefault(); var target=document.querySelector(href); if(target) target.scrollIntoView({behavior:'smooth'})}})})
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href=a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          var target=document.querySelector(href);
+          if(target) target.scrollIntoView({behavior:'smooth'})
+        }
+      })
+    });
 
     // guard (no form)
     var form = document.getElementById('contact-form');
-    if(form){form.addEventListener('submit', function(e){e.preventDefault();alert('フォームは無効です。LINE・メール・電話でお問い合わせください。');});}
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('フォームは無効です。LINE・メール・電話でお問い合わせください。');
+      });
+    }
   </script>
 </body>
 </html>
