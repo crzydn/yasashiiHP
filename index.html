@@ -51,7 +51,7 @@
       --radius:14px;
       --container:1100px;
       --shadow:0 10px 30px rgba(11,22,35,0.06);
-      --logo-size: clamp(40px, 6vw, 56px); /* 正しいCSS変数名 */
+      --logo-size: clamp(40px, 6vw, 56px);
       font-family:'Noto Sans JP','Poppins',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
     }
 
@@ -59,9 +59,6 @@
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;background:linear-gradient(180deg,#fbfcfd,#f7fbff);color:#12202b;line-height:1.65;-webkit-font-smoothing:antialiased}
-
-    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
-    .skip-link:focus{left:8px;top:8px;width:auto;height:auto;padding:8px 12px;background:#000;color:#fff;border-radius:6px;z-index:10000}
 
     .wrap{max-width:var(--container);margin:0 auto;padding:28px}
 
@@ -71,32 +68,27 @@
     .brand .logo{
       width:var(--logo-size);
       height:var(--logo-size);
+      aspect-ratio:1/1;           /* 正方形を保証 */
       border-radius:12px;
-      object-fit:cover;
+      object-fit:cover;           /* 余白なくトリミング */
       object-position:center;
       display:block;
       flex:0 0 auto;
+      background:#eaf6fb;         /* 画像未読込時に見える下地 */
     }
     .brand .title{font-weight:700;line-height:1}
     .brand .subtitle{font-size:12px;color:var(--muted);line-height:1.4;margin-top:2px}
 
-    nav{display:flex;gap:12px;align-items:center;flex:0 0 auto}
+    nav{display:flex;gap:12px;align-items:center}
     nav a{margin-left:6px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
     .cta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:white;padding:8px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 
-    /* ナビ左の小ロゴ（任意） */
-    .nav-logo{display:inline-flex;align-items:center;margin-right:4px;padding:0}
-    .nav-logo img{width:28px;height:28px;border-radius:6px;object-fit:cover;display:block}
-
-    /* ===== Common Buttons ===== */
+    /* ===== Common ===== */
     .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer;border:0;transition:transform .14s ease,box-shadow .14s ease,filter .14s ease;font-family:'Poppins',sans-serif;text-decoration:none;color:var(--primary-contrast)}
     .btn i{font-size:18px}
-    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-dark));box-shadow:0 8px 20px rgba(30,90,120,0.12);color:var(--primary-contrast)}
+    .btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-dark));box-shadow:0 8px 20px rgba(30,90,120,0.12)}
     .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(30,90,120,0.14)}
-    .btn-primary:focus{outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
     .btn-ghost{background:transparent;border:2px solid rgba(43,143,179,0.12);color:var(--primary);padding:10px 16px}
-    .btn-ghost:hover{background:rgba(43,143,179,0.04);transform:translateY(-2px)}
-    .btn-ghost:focus{outline:3px solid rgba(43,143,179,0.12);outline-offset:3px}
 
     /* ===== Hero ===== */
     .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:28px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.6));box-shadow:var(--shadow)}
@@ -117,11 +109,14 @@
     .pricing{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
     .plan{flex:1;min-width:220px;background:linear-gradient(180deg,#fff,#fcfeff);border-radius:12px;padding:14px;border:1px solid rgba(15,53,75,0.03);transition:transform .18s ease}
     .plan .price{font-size:18px;font-weight:800;color:var(--primary)}
-    .plan h4 i{margin-right:8px;color:var(--primary)}
 
-    .samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:12px}
-    .sample img{width:100%;height:120px;object-fit:cover;border-radius:8px;transition:transform .18s ease}
-    .sample:hover img{transform:scale(1.03)}
+    /* ===== Samples (整え版) ===== */
+    .samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+    .sample a{display:block;text-decoration:none;color:inherit}
+    .sample .thumb{width:100%;height:140px;border-radius:10px;object-fit:cover;display:block}
+    .sample .meta{padding:10px 8px 12px}
+    .sample .title{font-weight:700;margin:4px 0 2px}
+    .sample .sub{color:var(--muted);font-size:13px}
 
     #profile img{flex:0 0 100px;width:100px;height:100px}
     #profile p, #whycheap p{font-size:15px}
@@ -142,47 +137,31 @@
     footer{margin-top:28px;padding:16px 0;color:var(--muted);text-align:center;font-size:14px}
 
     /* Cookie banner */
-    .cookie-banner{position:fixed;left:12px;right:12px;bottom:110px;max-width:420px;background:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:12px;z-index:10020}
-
-    /* CTAペア（サービス内容下のLINE/Instagram）を横並びで調整 */
-    .cta-pair{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
-    .cta-pair .btn{padding:10px 14px}
-    .cta-pair .btn i{font-size:16px}
-    .cta-pair .btn{min-width:200px}
+    .cookie-banner{position:fixed;left:12px;right:12px;bottom:110px;max-width:420px;background:#fff;padding:12px 16px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.12);display:flex;flex-direction:column;gap:12px;z-index:10020}
 
     /* ===== Responsive ===== */
-    @media(min-width:900px){
-      .hero{grid-template-columns:1fr 440px}
-    }
+    @media(min-width:900px){.hero{grid-template-columns:1fr 440px}}
     @media(max-width:899px){
       header{align-items:center}
       nav{order:2;width:100%;display:flex;justify-content:space-around;padding:8px 0;margin-top:8px;flex-wrap:wrap}
       .brand{order:1;width:100%;display:flex;justify-content:flex-start}
-      .nav-logo img{ width:24px; height:24px; }
       nav a{margin-left:0;padding:8px 6px;font-size:15px}
       .wrap{padding:16px}
       .contact-grid{flex-direction:column}
       .features{grid-template-columns:1fr}
       .cookie-banner{left:12px;right:12px;bottom:140px}
-      .sticky-ctawrap{right:12px;bottom:12px}
-      .btn{padding:14px 18px}
-      .cta-pair .btn{min-width:46%}
     }
     @media(max-width:420px){
       .hero-right{min-height:160px}
       .cookie-banner{bottom:160px}
       .btn{padding:12px 14px;font-size:15px}
       nav a{font-size:14px;padding:6px}
-      .cta-pair .btn{min-width:100%}
     }
 
     /* Sticky CTAs */
     .sticky-ctawrap{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-end;z-index:10010}
     .sticky-cta{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:12px;box-shadow:0 8px 20px rgba(30,90,120,0.12);text-decoration:none;color:var(--primary-contrast);background:linear-gradient(90deg,var(--primary),var(--primary-dark));font-weight:700;padding:0}
-    .sticky-cta i{font-size:20px;line-height:1}
-    .sticky-cta.insta{background:linear-gradient(90deg,var(--primary),var(--primary-dark));color:var(--primary-contrast)}
-    .sticky-cta:focus{outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
-
+    .sticky-cta.insta{background:linear-gradient(90deg,var(--primary),var(--primary-dark))}
     a:focus, button:focus {outline:3px solid rgba(43,143,179,0.18);outline-offset:3px}
   </style>
 
@@ -202,7 +181,6 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TMQVJ2G9"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
 
   <a class="skip-link" href="#main">本文へスキップ</a>
   <div class="wrap">
@@ -210,7 +188,8 @@
     <!-- ===== Header ===== -->
     <header role="banner">
       <div class="brand">
-        <a href="#top" aria-label="トップへ" class="brand-link">
+        <!-- ロゴ（必ず表示されるよう <img> を直書き） -->
+        <a href="#top" aria-label="トップへ">
           <img class="logo" src="yasashiiHPlogo.jpg" alt="やさしいHPプラン ロゴ">
         </a>
         <div>
@@ -220,9 +199,6 @@
       </div>
 
       <nav aria-label="グローバルナビゲーション" id="globalNav">
-        <a class="nav-logo" href="#top" aria-label="トップへ">
-          <img src="yasashiiHPlogo.jpg" alt="">
-        </a>
         <a href="#service"><i class="fa-solid fa-list" aria-hidden="true"></i> サービス</a>
         <a href="#price"><i class="fa-solid fa-tag" aria-hidden="true"></i> 料金</a>
         <a href="#works"><i class="fa-solid fa-window-maximize" aria-hidden="true"></i> 実績</a>
@@ -230,7 +206,6 @@
         <a href="#contact" class="cta"><i class="fa-solid fa-comments" aria-hidden="true"></i> 無料相談</a>
       </nav>
     </header>
-    <!-- ==== /Header ==== -->
 
     <main id="main" role="main">
       <!-- ===== Hero ===== -->
@@ -280,7 +255,7 @@
         </div>
 
         <!-- サービス内容下のCTA -->
-        <div class="cta-pair" style="margin-top:14px">
+        <div class="cta-pair" style="display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:14px">
           <a class="btn btn-primary" id="ctaLine" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="LINEで無料相談"><i class="fa-brands fa-line" aria-hidden="true"></i> LINEで無料相談</a>
           <a class="btn btn-primary" id="ctaInsta" href="https://instagram.com/yasashiihp" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM"><i class="fa-brands fa-instagram" aria-hidden="true"></i> InstagramでDM</a>
         </div>
@@ -309,26 +284,37 @@
         </div>
       </section>
 
-      <!-- ===== Works ===== -->
+      <!-- ===== Works (整え版) ===== -->
       <section id="works" aria-labelledby="works-heading">
         <h2 id="works-heading" style="font-weight:700;font-size:18px;margin-top:28px">制作サンプル</h2>
         <div class="samples">
           <div class="sample card">
-            <a href="https://crzydn.github.io/iwaki-houmonkango/" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit;padding:8px">
-              <div class="title" style="margin-bottom:6px"><i class="fa-solid fa-hospital" aria-hidden="true"></i><b> 訪問看護ステーションA</b></div>
-              <div style="color:var(--muted);font-size:13px">公開LPを見る（外部リンク）</div>
+            <a href="https://crzydn.github.io/iwaki-houmonkango/" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="sample1.jpg" alt="訪問看護ステーションAのサムネイル（差し替えてください）">
+              <div class="meta">
+                <div class="title"><i class="fa-solid fa-hospital" aria-hidden="true"></i> 訪問看護ステーションA</div>
+                <div class="sub">公開LPを見る（外部リンク）</div>
+              </div>
             </a>
           </div>
+
           <div class="sample card">
-            <a href="https://crzydn.github.io/houmonkaigo/" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit;padding:8px">
-              <div class="title" style="margin-bottom:6px"><i class="fa-solid fa-house-user" aria-hidden="true"></i><b> 訪問介護B</b></div>
-              <div style="color:var(--muted);font-size:13px">公開LPを見る（外部リンク）</div>
+            <a href="https://crzydn.github.io/houmonkaigo/" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="sample2.jpg" alt="訪問介護Bのサムネイル（差し替えてください）">
+              <div class="meta">
+                <div class="title"><i class="fa-solid fa-house-user" aria-hidden="true"></i> 訪問介護B</div>
+                <div class="sub">公開LPを見る（外部リンク）</div>
+              </div>
             </a>
           </div>
+
           <div class="sample card">
-            <a href="https://crzydn.github.io/shuroushien/" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit;padding:8px">
-              <div class="title" style="margin-bottom:6px"><i class="fa-solid fa-briefcase" aria-hidden="true"></i><b> 就労支援C</b></div>
-              <div style="color:var(--muted);font-size:13px">公開LPを見る（外部リンク）</div>
+            <a href="https://crzydn.github.io/shuroushien/" target="_blank" rel="noopener noreferrer">
+              <img class="thumb" src="sample3.jpg" alt="就労支援Cのサムネイル（差し替えてください）">
+              <div class="meta">
+                <div class="title"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> 就労支援C</div>
+                <div class="sub">公開LPを見る（外部リンク）</div>
+              </div>
             </a>
           </div>
         </div>
@@ -340,29 +326,20 @@
         <p style="color:var(--muted);margin:8px 0 14px">
           制作後の<span style="font-weight:700">日々の運用</span>まで考えた提案をしています。職員のシフト作成・共有に便利な自作ツールを公開しています（スマホ対応）。
         </p>
-
-        <div class="tools-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
-          <!-- かんたんシフト表メーカー -->
-          <article class="card" style="padding:14px">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-              <div class="contact-icon" aria-hidden="true" style="width:44px;height:44px"><i class="fa-solid fa-table"></i></div>
-              <div style="font-weight:700">かんたんシフト表メーカー</div>
-            </div>
-            <ul style="color:var(--muted);padding-left:18px;margin:0 0 12px">
-              <li>ブラウザだけで使える（インストール不要）</li>
-              <li>日付自動生成／役職ラベル／簡単出力</li>
-              <li>スマホでの閲覧・調整に最適化</li>
-            </ul>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <a class="btn btn-primary" href="https://crzydn.github.io/schedule-shift-demo/" target="_blank" rel="noopener noreferrer" aria-label="シフト表ツールのデモを見る">
-                <i class="fa-solid fa-play" aria-hidden="true"></i> デモを見る
-              </a>
-              <a class="btn btn-ghost" href="https://crzydn.github.io/schedule-shift-demo/" target="_blank" rel="noopener noreferrer" aria-label="使い方を見る">
-                <i class="fa-solid fa-circle-question" aria-hidden="true"></i> 使い方
-              </a>
-            </div>
-          </article>
-        </div>
+        <article class="card" style="padding:14px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+            <div class="contact-icon" aria-hidden="true" style="width:44px;height:44px"><i class="fa-solid fa-table"></i></div>
+            <div style="font-weight:700">かんたんシフト表メーカー</div>
+          </div>
+          <ul style="color:var(--muted);padding-left:18px;margin:0 0 12px">
+            <li>ブラウザだけで使える（インストール不要）</li>
+            <li>日付自動生成／役職ラベル／簡単出力</li>
+            <li>スマホでの閲覧・調整に最適化</li>
+          </ul>
+          <a class="btn btn-primary" href="https://crzydn.github.io/schedule-shift-demo/" target="_blank" rel="noopener noreferrer" aria-label="シフト表ツールのデモを見る">
+            <i class="fa-solid fa-play" aria-hidden="true"></i> デモを見る
+          </a>
+        </article>
       </section>
 
       <!-- ===== Profile ===== -->
@@ -377,77 +354,35 @@
         </div>
       </section>
 
-      <!-- ===== Why cheap ===== -->
-      <section id="whycheap" aria-labelledby="whycheap-heading" class="card" style="margin-top:18px;padding:18px">
-        <h2 id="whycheap-heading" style="font-weight:700;font-size:18px">なぜこんなに格安で提供できるのか</h2>
-        <div style="color:var(--muted)">
-          <p>私が個人で運営しているため、広告費や大規模な人件費、営業チームの維持といった一般的な事業コストがほとんど発生しません。そのため、品質を保ちながらも価格を抑えてご提供できます。</p>
-          <ul>
-            <li>個人運営で管理コストが低い（広告・事務所費用を圧縮）</li>
-            <li>AI活用とテンプレ最適化で制作時間を短縮</li>
-            <li>ワンページ起点→必要に応じて機能追加で無駄を省く</li>
-            <li>学びを活かし誠実に対応（品質は担保、価格は抑制）</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- ===== FAQ ===== -->
-      <section class="faq" aria-labelledby="faq-heading">
-        <h2 id="faq-heading" style="font-weight:700;font-size:18px;margin-top:28px">よくある質問</h2>
-        <details class="q"><summary>制作にどれくらい時間がかかりますか？</summary><div style="color:var(--muted);padding-top:8px">文章・写真が揃っている場合、最短2週間で公開できます。ヒアリングの内容により前後します。</div></details>
-        <details class="q"><summary>支払い方法は？</summary><div style="color:var(--muted);padding-top:8px">銀行振込・PayPal（要相談）。分割や月額プランも対応可能です。</div></details>
-        <details class="q"><summary>自分で更新できますか？</summary><div style="color:var(--muted);padding-top:8px">指導型プランでは、ご自身でHTMLを編集するためのレクチャーを行います。</div></details>
-      </section>
-
-      <!-- ===== Contact ===== -->
-      <section id="contact" class="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading" style="font-weight:700;font-size:18px">お問い合わせ（ご連絡先）</h2>
-        <p style="color:var(--muted)">以下の方法でお気軽にご相談ください。無料相談・受付時間：平日 9:00〜18:00</p>
-        <div class="contact-grid" role="list">
-
-          <a class="contact-item" data-type="line" role="listitem" href="https://line.me/ti/p/@395gaeqo" target="_blank" rel="noopener noreferrer" aria-label="公式LINE">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-line"></i></div>
-            <div>
-              <div class="contact-text">公式LINE（@395gaeqo）</div>
-              <div class="contact-sub">チャットでの相談が一番スムーズです</div>
-            </div>
-          </a>
-
-          <a class="contact-item" data-type="email" role="listitem" href="mailto:yasashiihp@gmail.com?subject=ホームページ制作の相談" aria-label="メールで相談">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <div class="contact-text">yasashiihp@gmail.com</div>
-              <div class="contact-sub">メールで詳細を送れます</div>
-            </div>
-          </a>
-
-          <a class="contact-item" data-type="phone" role="listitem" href="tel:+818046483440" aria-label="お電話で相談">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <div class="contact-text">080-4648-3440</div>
-              <div class="contact-sub">平日 9:00〜18:00</div>
-            </div>
-          </a>
-
-          <a class="contact-item" data-type="insta" role="listitem" href="https://instagram.com/yasashiihp" target="_blank" rel="noopener noreferrer" aria-label="InstagramでDM">
-            <div class="contact-icon" aria-hidden="true"><i class="fa-brands fa-instagram"></i></div>
-            <div>
-              <div class="contact-text">Instagram（DM可）</div>
-              <div class="contact-sub">事例や雰囲気を写真でご確認ください</div>
-            </div>
-          </a>
-
-        </div>
-        <div style="margin-top:12px;color:var(--muted);font-size:13px">※お問い合わせはLINE・メール・お電話・InstagramのDMで承ります。お問い合わせフォームは廃止しました。</div>
-      </section>
-
-      <!-- ===== Privacy ===== -->
+      <!-- ===== Privacy (中略なし) ===== -->
       <section id="privacy" class="card" aria-labelledby="privacy-heading" style="margin-top:18px;padding:18px">
         <h2 id="privacy-heading" style="font-weight:700;font-size:18px">プライバシーポリシー（個人情報の取扱い）</h2>
         <div style="color:var(--muted)">
-          <p>当サイト（やさしいHPプラン）は、訪問看護・訪問介護・就労支援事業者さま向けのウェブ制作サービスを提供するにあたり、個人情報の重要性を深く認識し、適切に取り扱います。</p>
-          <p>（中略）</p>
-          <p>最終改定日：2025年9月19日</p>
+          <p>当サイト「やさしいHPプラン」（以下「当サイト」）は、個人情報の重要性を認識し、関係法令・ガイドラインを遵守して適切に取り扱います。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">1. 取得する情報</h3>
+          <p>お問い合わせ時に、氏名、連絡先（メール・電話・SNSアカウント）、事業者名、その他ご提供いただく内容を取得します。アクセス解析により、クッキー等を通じて閲覧情報を取得する場合があります。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">2. 利用目的</h3>
+          <ul>
+            <li>お問い合わせ対応、見積書・提案書の送付</li>
+            <li>制作業務の連絡・進行管理・保守運用</li>
+            <li>サービス品質向上のための分析</li>
+            <li>法令遵守ならびに不正防止</li>
+          </ul>
+          <h3 style="font-size:16px;margin:10px 0 6px">3. 第三者提供</h3>
+          <p>法令に基づく場合を除き、本人の同意なく第三者に提供しません。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">4. 委託</h3>
+          <p>業務遂行上、必要な範囲で業務委託することがあります。その場合は委託先を適切に監督します。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">5. 安全管理</h3>
+          <p>取得した情報は、漏えい・滅失・毀損の防止のため、アクセス権限管理・暗号化等の合理的な安全対策を講じます。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">6. 保有期間</h3>
+          <p>利用目的の達成に必要な期間保存し、不要となった情報は適切に廃棄します。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">7. 開示等の請求</h3>
+          <p>ご本人からの開示・訂正・削除・利用停止等のご請求に、法令に基づき適切に対応します。お問い合わせは下記連絡先までお願いします。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">8. クッキーについて</h3>
+          <p>当サイトは利便性向上・アクセス解析のためクッキーを使用します。ブラウザ設定で無効化できますが、一部機能に影響する場合があります。</p>
+          <h3 style="font-size:16px;margin:10px 0 6px">9. 連絡先</h3>
+          <p>メール：yasashiihp@gmail.com / 電話：080-4648-3440</p>
+          <p style="margin-top:8px">最終改定日：2025年9月19日</p>
         </div>
       </section>
     </main>
@@ -506,7 +441,7 @@
     document.getElementById('declineCookie').addEventListener('click',function(){setCookie('site_cookie_consent','0',365);document.getElementById('cookie').style.display='none';});
     document.getElementById('manageCookie').addEventListener('click',function(){document.getElementById('privacy').scrollIntoView({behavior:'smooth'})})
 
-    // touch target
+    // アクセシビリティ改善
     document.querySelectorAll('.contact-item').forEach(function(el){el.setAttribute('tabindex','0')});
 
     // Smooth scroll for anchors
@@ -520,15 +455,6 @@
         }
       })
     });
-
-    // guard (no form)
-    var form = document.getElementById('contact-form');
-    if(form){
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        alert('フォームは無効です。LINE・メール・電話でお問い合わせください。');
-      });
-    }
   </script>
 </body>
 </html>
