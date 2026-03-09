@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fadeUp {
+  animation: fadeUp 0.5s ease-out;
+}
+
+.slideIn {
+  animation: slideIn 0.5s ease-in;
+}
+
+/* Accessibility Features */
+:root {
+    --color-primary: #1d4ed8;
+    --color-secondary: #9333ea;
+}
+
+.button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+}
+
+.button:focus {
+  outline: 2px solid var(--color-secondary);
+}
+
+.button:hover {
+  background-color: var(--color-secondary);
+}
